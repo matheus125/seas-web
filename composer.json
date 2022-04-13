@@ -1,10 +1,10 @@
 {
-    "name": "api/composer",
+    "name": "api/seas",
     "description": "API",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Api\\Composer\\": "src/"
+            "Api\\Seas\\": "vendor\\api\\php-classes\\src"
 
         }
     },
@@ -19,6 +19,6 @@
         "monolog/monolog": "1.0.*",
         "phpmailer/phpmailer": "^6.5",
         "rain/raintpl": ">=3.0.0",
-        "slim/slim": ">=3.0.0"
+        "slim/slim": "2.0"
     }
 }
