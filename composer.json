@@ -1,0 +1,24 @@
+{
+    "name": "api/composer",
+    "description": "API",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Api\\Composer\\": "src/"
+
+        }
+    },
+    "authors": [
+        {
+            "name": "Matheus Mota da Silva",
+            "email": "matheus125_mota@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog": "1.0.*",
+        "phpmailer/phpmailer": "^6.5",
+        "rain/raintpl": ">=3.0.0",
+        "slim/slim": ">=3.0.0"
+    }
+}
