@@ -2,17 +2,18 @@
 
 require_once("vendor/autoload.php");
 
+use \Slim\Slim;
+use \Api\Seas\Page;
+
 $app = new \Slim\Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
 
-    $sql = new Api\Seas\DB\sql();
+    $page = new Page();
 
-    $results = $sql->select("select * from tb_users");
-
-    echo json_encode($results);
+    $page->setTpl("index");
 
 });
 
