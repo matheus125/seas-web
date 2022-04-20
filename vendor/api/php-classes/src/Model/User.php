@@ -88,7 +88,7 @@ class User extends Model {
 		if (!User::checkLogin($perfil)) {
 
 			if ($perfil == Perfil::Administrador) {
-				header("Location: /admin");
+				header("Location: /index");
 			} else {
 				header("Location: /");
 			}
