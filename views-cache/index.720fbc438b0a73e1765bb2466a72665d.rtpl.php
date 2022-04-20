@@ -35,15 +35,23 @@
               <h3>Entrar</h3>
               <p class="mb-4"></p>
             </div>
-            <form action="#" method="post">
+            <form action="/" method="post">
+              <?php if( $error != '' ){ ?>
+
+              <div class="alert alert-danger">
+                <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+
+              </div>
+              <?php } ?>
+
               <div class="form-group first">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username">
+                <input type="text" class="form-control" id="username" name="login">
                 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" name="password">
                 
               </div>
               

@@ -59,7 +59,7 @@ class User extends Model {
 		$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b ON a.idperson = b.idperson WHERE a.deslogin = :LOGIN", array(
 			":LOGIN" => $login
 		)); // resultado de consulta no banco 
-
+		
 		if (count($results) === 0) {
 			throw new \Exception("Usuário inexistente ou senha inválida.");
 		}
@@ -81,5 +81,40 @@ class User extends Model {
 			throw new \Exception("Usuário inexistente ou senha inválida.");
 		}
 	}// FIM DO MÉTODO LOGIN
+
+	public static function verifyLogin($perfil = Perfil::Administrador)
+	{
+
+		if (!User::checkLogin($perfil)) {
+
+			if ($perfil == Perfil::Administrador) {
+				header("Location: /admin");
+			} else {
+				header("Location: /");
+			}
+			exit;
+		}
+	}
+	
+	public static function setError($msg)
+	{
+
+		$_SESSION[User::ERROR] = $msg;
+	}
+
+	public static function getError()
+	{
+
+		$msg = (isset($_SESSION[User::ERROR]) && $_SESSION[User::ERROR]) ? $_SESSION[User::ERROR] : '';
+
+		User::clearError();
+
+		return $msg;
+	}
+
+	public static function clearError()
+	{
+		$_SESSION[User::ERROR] = NULL;
+	}
 
 } // FIM DA CLASSE "USER"
