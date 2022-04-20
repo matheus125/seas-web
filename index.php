@@ -12,5 +12,4 @@ require_once("login.php");
 require_once("admin.php");
 
 $app->run();
-
 ?>

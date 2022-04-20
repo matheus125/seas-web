@@ -1,5 +1,7 @@
 <?php
 
+require_once("vendor/autoload.php");
+
 use \Slim\Slim;
 use \Api\Seas\Page;
 
@@ -17,5 +19,7 @@ $app->get('/', function() {
     $page->setTpl("index");
 
 });
+
+$app->run();
 
 ?>
